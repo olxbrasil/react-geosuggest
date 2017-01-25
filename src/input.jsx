@@ -99,7 +99,7 @@ class Input extends React.Component {
       type='text'
       autoComplete='off'
       {...attributes}
-      value={this.props.value}
+      value={typeof this.props.value === 'string' ? this.props.value : this.props.value.props.inputValue}
       style={this.props.style}
       onKeyDown={this.onInputKeyDown}
       onChange={this.onChange}
