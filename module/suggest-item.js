@@ -10,10 +10,6 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactAddonsShallowCompare = require('react-addons-shallow-compare');
-
-var _reactAddonsShallowCompare2 = _interopRequireDefault(_reactAddonsShallowCompare);
-
 var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
@@ -31,8 +27,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
  * @param {Object} props The component's props
  * @return {JSX} The icon component.
  */
-var SuggestItem = function (_React$Component) {
-  _inherits(SuggestItem, _React$Component);
+var SuggestItem = function (_React$PureComponent) {
+  _inherits(SuggestItem, _React$PureComponent);
 
   function SuggestItem() {
     var _ref;
@@ -50,26 +46,13 @@ var SuggestItem = function (_React$Component) {
       _this.props.onSelect(_this.props.suggest);
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
+  /**
+   * When the suggest item got clicked
+   * @param {Event} event The click event
+   */
+
 
   _createClass(SuggestItem, [{
-    key: 'shouldComponentUpdate',
-
-    /**
-     * Whether or not the component should update
-     * @param {Object} nextProps The new properties
-     * @param {Object} nextState The new state
-     * @return {Boolean} Update or not?
-     */
-    value: function shouldComponentUpdate(nextProps, nextState) {
-      return (0, _reactAddonsShallowCompare2.default)(this, nextProps, nextState);
-    }
-
-    /**
-     * When the suggest item got clicked
-     * @param {Event} event The click event
-     */
-
-  }, {
     key: 'render',
 
 
@@ -93,7 +76,7 @@ var SuggestItem = function (_React$Component) {
   }]);
 
   return SuggestItem;
-}(_react2.default.Component);
+}(_react2.default.PureComponent);
 
 /**
  * Default values for the properties

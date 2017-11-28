@@ -1,5 +1,4 @@
 import React from 'react'; // eslint-disable-line no-unused-vars
-import shallowCompare from 'react-addons-shallow-compare';
 import classnames from 'classnames';
 
 import filterInputAttributes from './filter-input-attributes';
@@ -9,22 +8,16 @@ import filterInputAttributes from './filter-input-attributes';
  * @param {Object} props The component's props
  * @return {JSX} The icon component.
  */
-class Input extends React.Component {
-  /**
-   * Whether or not the component should update
-   * @param {Object} nextProps The new properties
-   * @param {Object} nextState The new state
-   * @return {Boolean} Update or not?
-   */
-  shouldComponentUpdate(nextProps, nextState) {
-    return shallowCompare(this, nextProps, nextState);
+class Input extends React.PureComponent {
+  onRef = el => {
+    this.input = el;
   }
 
   /**
    * When the input got changed
    */
   onChange = () => {
-    this.props.onChange(this.refs.input.value);
+    this.props.onChange(this.input.value);
   }
 
   /**
@@ -80,7 +73,7 @@ class Input extends React.Component {
    * Focus the input
    */
   focus() {
-    this.refs.input.focus();
+    this.input.focus();
   }
 
   /**
@@ -95,7 +88,7 @@ class Input extends React.Component {
       );
 
     return <input className={classes}
-      ref='input'
+      ref={this.onRef}
       type='text'
       autoComplete='off'
       {...attributes}

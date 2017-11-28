@@ -35,9 +35,6 @@ class Geosuggest extends React.Component {
       timer: null
     };
 
-    this.onInputChange = this.onInputChange.bind(this);
-    this.onAfterInputChange = this.onAfterInputChange.bind(this);
-
     if (props.queryDelay) {
       this.onAfterInputChange =
         debounce(this.onAfterInputChange, props.queryDelay);
@@ -86,6 +83,10 @@ class Geosuggest extends React.Component {
    */
   componentWillUnmount() {
     clearTimeout(this.state.timer);
+  }
+
+  onRef = el => {
+    this.input = el;
   }
 
   /**
@@ -139,7 +140,7 @@ class Geosuggest extends React.Component {
    * Focus the input
    */
   focus() {
-    this.refs.input.focus();
+    this.input.focus();
   }
 
   /**
@@ -384,7 +385,7 @@ class Geosuggest extends React.Component {
         {'geosuggest--loading': this.state.isLoading}
       ),
       input = <Input className={this.props.inputClassName}
-        ref='input'
+        ref={this.onRef}
         value={this.state.userInput}
         ignoreEnter={!this.state.isSuggestsHidden}
         ignoreTab={this.props.ignoreTab}

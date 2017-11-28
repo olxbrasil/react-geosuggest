@@ -69,6 +69,10 @@ var Geosuggest = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (Geosuggest.__proto__ || Object.getPrototypeOf(Geosuggest)).call(this, props));
 
+    _this.onRef = function (el) {
+      _this.input = el;
+    };
+
     _this.onInputChange = function (userInput) {
       _this.setState({ userInput: userInput }, _this.onAfterInputChange);
     };
@@ -154,9 +158,6 @@ var Geosuggest = function (_React$Component) {
       suggests: [],
       timer: null
     };
-
-    _this.onInputChange = _this.onInputChange.bind(_this);
-    _this.onAfterInputChange = _this.onAfterInputChange.bind(_this);
 
     if (props.queryDelay) {
       _this.onAfterInputChange = (0, _lodash2.default)(_this.onAfterInputChange, props.queryDelay);
@@ -244,7 +245,7 @@ var Geosuggest = function (_React$Component) {
      * Focus the input
      */
     value: function focus() {
-      this.refs.input.focus();
+      this.input.focus();
     }
 
     /**
@@ -485,7 +486,7 @@ var Geosuggest = function (_React$Component) {
       var attributes = (0, _filterInputAttributes2.default)(this.props),
           classes = (0, _classnames2.default)('geosuggest', this.props.className, { 'geosuggest--loading': this.state.isLoading }),
           input = _react2.default.createElement(_input2.default, _extends({ className: this.props.inputClassName,
-        ref: 'input',
+        ref: this.onRef,
         value: this.state.userInput,
         ignoreEnter: !this.state.isSuggestsHidden,
         ignoreTab: this.props.ignoreTab,
