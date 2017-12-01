@@ -12,10 +12,6 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactAddonsShallowCompare = require('react-addons-shallow-compare');
-
-var _reactAddonsShallowCompare2 = _interopRequireDefault(_reactAddonsShallowCompare);
-
 var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
@@ -38,8 +34,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
  * @param {Object} props The component's props
  * @return {JSX} The icon component.
  */
-var Input = function (_React$Component) {
-  _inherits(Input, _React$Component);
+var Input = function (_React$PureComponent) {
+  _inherits(Input, _React$PureComponent);
 
   function Input() {
     var _ref;
@@ -52,8 +48,10 @@ var Input = function (_React$Component) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Input.__proto__ || Object.getPrototypeOf(Input)).call.apply(_ref, [this].concat(args))), _this), _this.onChange = function () {
-      _this.props.onChange(_this.refs.input.value);
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Input.__proto__ || Object.getPrototypeOf(Input)).call.apply(_ref, [this].concat(args))), _this), _this.onRef = function (el) {
+      _this.input = el;
+    }, _this.onChange = function () {
+      _this.props.onChange(_this.input.value);
     }, _this.onFocus = function () {
       _this.props.onFocus();
     }, _this.onBlur = function () {
@@ -95,40 +93,28 @@ var Input = function (_React$Component) {
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
+  /**
+   * When the input got changed
+   */
+
+
+  /**
+   * When the input got focused
+   */
+
+
+  /**
+   * When the input loses focus
+   */
+
+
+  /**
+   * When a key gets pressed in the input
+   * @param  {Event} event The keypress event
+   */
+
+
   _createClass(Input, [{
-    key: 'shouldComponentUpdate',
-
-    /**
-     * Whether or not the component should update
-     * @param {Object} nextProps The new properties
-     * @param {Object} nextState The new state
-     * @return {Boolean} Update or not?
-     */
-    value: function shouldComponentUpdate(nextProps, nextState) {
-      return (0, _reactAddonsShallowCompare2.default)(this, nextProps, nextState);
-    }
-
-    /**
-     * When the input got changed
-     */
-
-
-    /**
-     * When the input got focused
-     */
-
-
-    /**
-     * When the input loses focus
-     */
-
-
-    /**
-     * When a key gets pressed in the input
-     * @param  {Event} event The keypress event
-     */
-
-  }, {
     key: 'focus',
 
 
@@ -136,7 +122,7 @@ var Input = function (_React$Component) {
      * Focus the input
      */
     value: function focus() {
-      this.refs.input.focus();
+      this.input.focus();
     }
 
     /**
@@ -151,7 +137,7 @@ var Input = function (_React$Component) {
           classes = (0, _classnames2.default)('geosuggest__input', this.props.className);
 
       return _react2.default.createElement('input', _extends({ className: classes,
-        ref: 'input',
+        ref: this.onRef,
         type: 'text',
         autoComplete: 'off'
       }, attributes, {
@@ -165,7 +151,7 @@ var Input = function (_React$Component) {
   }]);
 
   return Input;
-}(_react2.default.Component);
+}(_react2.default.PureComponent);
 
 /**
  * Default values for the properties

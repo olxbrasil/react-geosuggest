@@ -1,5 +1,4 @@
 import React from 'react';
-import shallowCompare from 'react-addons-shallow-compare';
 import classnames from 'classnames';
 
 /**
@@ -7,17 +6,7 @@ import classnames from 'classnames';
  * @param {Object} props The component's props
  * @return {JSX} The icon component.
  */
-export default class SuggestItem extends React.Component {
-  /**
-   * Whether or not the component should update
-   * @param {Object} nextProps The new properties
-   * @param {Object} nextState The new state
-   * @return {Boolean} Update or not?
-   */
-  shouldComponentUpdate(nextProps, nextState) {
-    return shallowCompare(this, nextProps, nextState);
-  }
-
+export default class SuggestItem extends React.PureComponent {
   /**
    * When the suggest item got clicked
    * @param {Event} event The click event

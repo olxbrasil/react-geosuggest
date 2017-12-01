@@ -10,10 +10,6 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactAddonsShallowCompare = require('react-addons-shallow-compare');
-
-var _reactAddonsShallowCompare2 = _interopRequireDefault(_reactAddonsShallowCompare);
-
 var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
@@ -36,8 +32,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
  * @param {Object} props The component's props
  * @return {JSX} The icon component.
  */
-var SuggestList = function (_React$Component) {
-  _inherits(SuggestList, _React$Component);
+var SuggestList = function (_React$PureComponent) {
+  _inherits(SuggestList, _React$PureComponent);
 
   function SuggestList() {
     _classCallCheck(this, SuggestList);
@@ -46,25 +42,12 @@ var SuggestList = function (_React$Component) {
   }
 
   _createClass(SuggestList, [{
-    key: 'shouldComponentUpdate',
-
-    /**
-     * Whether or not the component should update
-     * @param {Object} nextProps The new properties
-     * @param {Object} nextState The new state
-     * @return {Boolean} Update or not?
-     */
-    value: function shouldComponentUpdate(nextProps, nextState) {
-      return (0, _reactAddonsShallowCompare2.default)(this, nextProps, nextState);
-    }
+    key: 'isHidden',
 
     /**
      * Whether or not it is hidden
      * @return {Boolean} Hidden or not?
      */
-
-  }, {
-    key: 'isHidden',
     value: function isHidden() {
       return this.props.isHidden || this.props.suggests.length === 0;
     }
@@ -116,7 +99,7 @@ var SuggestList = function (_React$Component) {
   }]);
 
   return SuggestList;
-}(_react2.default.Component);
+}(_react2.default.PureComponent);
 
 /**
  * Default values for the properties
