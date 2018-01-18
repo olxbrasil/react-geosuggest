@@ -399,6 +399,10 @@ class Geosuggest extends React.Component {
         onEscape={this.hideSuggests} {...attributes} />,
       suggestionsList = <SuggestList isHidden={this.state.isSuggestsHidden}
         style={this.props.style.suggests}
+        suggestsClassName={this.props.suggestsClassName}
+        suggestItemClassName={this.props.suggestItemClassName}
+        hiddenClassName={this.props.suggestsHiddenClassName}
+        suggestItemActiveClassName={this.props.suggestItemActiveClassName}
         suggestItemStyle={this.props.style.suggestItem}
         suggests={this.state.suggests}
         activeSuggest={this.state.activeSuggest}

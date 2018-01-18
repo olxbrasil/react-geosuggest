@@ -10,11 +10,13 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _classnames = require('classnames');
+var _classnames2 = require('classnames');
 
-var _classnames2 = _interopRequireDefault(_classnames);
+var _classnames3 = _interopRequireDefault(_classnames2);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -61,7 +63,7 @@ var SuggestItem = function (_React$PureComponent) {
      * @return {Function} The React element to render
      */
     value: function render() {
-      var classes = (0, _classnames2.default)('geosuggest-item', this.props.className, { 'geosuggest-item--active': this.props.isActive });
+      var classes = (0, _classnames3.default)('geosuggest-item', this.props.className, this.props.suggestItemClassName, { 'geosuggest-item--active': this.props.isActive }, _defineProperty({}, this.props.activeClassname, this.props.activeClassname ? this.props.isActive : null));
 
       return _react2.default.createElement(
         'li',
