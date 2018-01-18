@@ -24,7 +24,10 @@ export default class SuggestItem extends React.PureComponent {
     const classes = classnames(
       'geosuggest-item',
       this.props.className,
-      {'geosuggest-item--active': this.props.isActive}
+      this.props.suggestItemClassName,
+      {'geosuggest-item--active': this.props.isActive},
+      {[this.props.activeClassname]: this.props.activeClassname ?
+        this.props.isActive : null}
     );
 
     return <li className={classes}
