@@ -30,8 +30,8 @@ class Input extends React.PureComponent {
   /**
    * When the input loses focus
    */
-  onBlur = () => {
-    this.props.onBlur();
+  onBlur = (e) => {
+    this.props.onBlur(e);
   }
 
   /**

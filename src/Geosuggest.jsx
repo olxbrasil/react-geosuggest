@@ -116,9 +116,9 @@ class Geosuggest extends React.Component {
   /**
    * When the input gets blurred
    */
-  onInputBlur = () => {
+  onInputBlur = (e) => {
     if (!this.state.ignoreBlur) {
-      this.hideSuggests();
+      this.hideSuggests(e);
     }
   }
 
@@ -274,8 +274,10 @@ class Geosuggest extends React.Component {
   /**
    * Hide the suggestions
    */
-  hideSuggests = () => {
-    this.props.onBlur(this.state.userInput);
+  hideSuggests = (e) => {
+    if (e) {
+      this.props.onBlur(e);
+    }
     const timer = setTimeout(() => {
       this.setState({
         isSuggestsHidden: true,

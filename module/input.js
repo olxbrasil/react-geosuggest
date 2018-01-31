@@ -54,8 +54,8 @@ var Input = function (_React$PureComponent) {
       _this.props.onChange(_this.input.value);
     }, _this.onFocus = function () {
       _this.props.onFocus();
-    }, _this.onBlur = function () {
-      _this.props.onBlur();
+    }, _this.onBlur = function (e) {
+      _this.props.onBlur(e);
     }, _this.onInputKeyDown = function (event) {
       switch (event.which) {
         case 40:

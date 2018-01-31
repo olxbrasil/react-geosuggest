@@ -87,9 +87,9 @@ var Geosuggest = function (_React$Component) {
       _this.showSuggests();
     };
 
-    _this.onInputBlur = function () {
+    _this.onInputBlur = function (e) {
       if (!_this.state.ignoreBlur) {
-        _this.hideSuggests();
+        _this.hideSuggests(e);
       }
     };
 
@@ -117,8 +117,10 @@ var Geosuggest = function (_React$Component) {
       _this.props.onSuggestNoResults(_this.state.userInput);
     };
 
-    _this.hideSuggests = function () {
-      _this.props.onBlur(_this.state.userInput);
+    _this.hideSuggests = function (e) {
+      if (e) {
+        _this.props.onBlur(e);
+      }
       var timer = setTimeout(function () {
         _this.setState({
           isSuggestsHidden: true,
